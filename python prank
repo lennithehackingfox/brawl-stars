@@ -1,0 +1,46 @@
+import ctypes
+import time
+import winsound
+import pyautogui
+import random
+
+# Function to display an unclosable pop-up
+def show_unclosable_popup(title, message, duration):
+    ctypes.windll.user32.MessageBoxW(0, message, title, 1)
+    time.sleep(duration)
+
+def increase_volume():
+    # Increase system volume (adjust the value based on your preference)
+    pyautogui.hotkey('ctrl', 'up')
+
+def play_sound(file_path):
+    # Play a sound (you can replace the file path with your own sound file)
+    winsound.PlaySound(file_path, winsound.SND_FILENAME)
+
+def dance_cursor(duration=30):
+    start_time = time.time()
+
+    while time.time() - start_time < duration:
+        x_offset = random.randint(-50, 50)
+        y_offset = random.randint(-50, 50)
+
+        pyautogui.move(x_offset, y_offset, duration=0.2)  # Adjust duration as needed
+        time.sleep(0.2)
+
+def open_rickroll():
+    # Simulate pressing F11 to toggle fullscreen
+    pyautogui.press('f11')
+
+    # Open Rickroll in fullscreen
+    pyautogui.write('https://www.youtube.com/watch?v=dQw4w9WgXcQ', interval=0.1)
+    pyautogui.press('enter')
+
+if __name__ == "__main__":
+    # Perform fun actions
+    show_unclosable_popup('Unclosable Pop-up', 'This pop-up is unclosable for 10 seconds!', 10)
+    increase_volume()
+    play_sound("C:\\Path\\To\\Your\\Sound\\file.wav")  # Add the path to your disco sound
+    dance_cursor()
+    
+    # Open Rickroll in fullscreen after the previous actions
+    open_rickroll()
