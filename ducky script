@@ -1,0 +1,29 @@
+ELAY 500
+REM Open Notepad
+DELAY 500
+STRING notepad
+ENTER
+DELAY 1000
+REM Type loading screen text
+STRING Loading...
+REM Save the file
+DELAY 500
+ALT F
+STRING a
+DELAY 500
+REM Create visual effect (alternating caps lock)
+CAPSLOCK
+DELAY 100
+CAPSLOCK
+DELAY 100
+CAPSLOCK
+DELAY 100
+REM Close Notepad
+ALT F4
+DELAY 500
+REM Open Run dialog
+WINDOWS r
+DELAY 500
+REM Type the shutdown command and execute
+STRING shutdown /s /t 5
+ENTER
